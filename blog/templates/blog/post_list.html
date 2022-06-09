@@ -7,16 +7,15 @@
     <header>
         <h1><a href="/">Lester's Blog</a></h1>
     </header>
-    <article>
-        <time>published: 09.06.2022, 15:01</time>
-        <h2><a href="">My first post</a></h2>
-        <p>Hi, Welcome to my personal blog. You will know what are my daily activities. Enjoy reading</p>
-    </article>
-    <article>
-        <time>published: 10.06.2022, 10:00</time>
-        <h2><a href="">My second post</a></h2>
-        <p>Hi, in this blog I will show you how to create website using Django Framework</p>
-    </article>
+
+    {% for post in posts %}
+        <article>
+            <time>published: {{ post.published_date}}</time>
+            <h2><a href="">{{ post.title }}</a></h2>
+            <p>{{ post.text|linebreaksbr }}</p>
+        </article>
+    {% endfor %}
+    
 
 </body>
 </html>
